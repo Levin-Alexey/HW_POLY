@@ -63,8 +63,8 @@ public class Company {
         int initialBalance = debit - credit;
 
         for (Deal deal : deals) {
-            credit += deal.getCreditChange();
-            debit += deal.getDebitChange();
+            initialBalance += deal.getDebitChange() - deal.getCreditChange();
+
         }
 
         calcTax();
