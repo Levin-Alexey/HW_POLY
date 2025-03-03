@@ -1,3 +1,4 @@
+import deals.Deal;
 import taxes.TaxSystem;
 
 public class Company {
@@ -46,7 +47,7 @@ public class Company {
     public void shiftMoney(int amount) {
         if (amount > 0) {
             debit += amount;
-        } else {
+        } else if (amount < 0) {
             credit += Math.abs(amount);
         }
     }
@@ -56,6 +57,18 @@ public class Company {
         System.out.println("Компания " + title + " уплатила налог в размере: " + tax + " руб.");
         debit = 0;
         credit = 0;
+    }
+
+    public int applyDeals(Deal[] deals) {
+        int initialBalance = debit - credit;
+
+        for (Deal deal : deals) {
+            credit += deal.getCreditChange();
+            debit += deal.getDebitChange();
+        }
+
+        calcTax();
+        return (debit - credit) - initialBalance;
     }
 
 }
