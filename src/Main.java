@@ -15,9 +15,9 @@ public class Main {
 
 
 
-        Deal deal1 = new Deal("Покупка машины на 1000000 руб.", 1000000, 0);
-        Deal deal2 = new Deal("Продажа машины на 1500000 руб.", 0, 2000000);
-        Deal deal3 = new Deal("Покупка квартиры на 5000000 руб.", 5000000, 0);
+        Deal deal1 = new Deal("Покупка машины на 2000000 руб.", 2000000, 0);
+        Deal deal2 = new Deal("Продажа машины на 300000 руб.", 0, 3000000);
+        Deal deal3 = new Deal("Покупка квартиры на 2000000 руб.", 2000000, 0);
 
         Deal[] deals = {deal1, deal2, deal3};
         int balanceChange = company1.applyDeals(deals);
