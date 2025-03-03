@@ -1,3 +1,4 @@
+import deals.Deal;
 import taxes.TaxSystem;
 
 public class Company {
@@ -56,6 +57,21 @@ public class Company {
         System.out.println("Компания " + title + " уплатила налог в размере: " + tax + " руб.");
         debit = 0;
         credit = 0;
+    }
+
+    public int applyDeals(Deal[] deals) {
+
+        for (Deal d : deals) {
+
+            debit += d.getDebitChange();
+            credit += d.getCreditChange();
+        }
+
+        int difference = debit - credit;
+
+        calcTax();
+
+        return difference;
     }
 
 }
